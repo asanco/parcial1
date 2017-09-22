@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
+import SeguidoresContainer from "./SeguidoresContainer";
 
 class App extends Component {
-  state = {users: []}
 
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
+    render() {
+        const styleTitle = {
+            color: 'purple',
+            padding: '40px',
+            margin:'5px'
+                };
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
-        )}
-      </div>
-    );
-  }
+                return (
+                    <div className = 'jumbotron'>
+                        <h1 style={styleTitle}>GitHub ¿Quién sigue a quién?</h1>
+                        <SeguidoresContainer/>
+                    </div>
+                );
+        
+    }
 }
 
 export default App;
